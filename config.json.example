@@ -1,0 +1,21 @@
+{
+  "prefix": "",
+  "status": "",
+  "statuses": [
+  ],
+  "logs": {
+    "messages": {
+      "webhook_id": "",
+      "webhook_token": ""
+    },
+    "moderation": {
+      "webhook_id": "",
+      "webhook_token": ""
+    },
+    "members": {
+      "webhook_id": "",
+      "webhok_token": ""
+    }
+  },
+  "token": ""
+}

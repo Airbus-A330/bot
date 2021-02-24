@@ -1,0 +1,11 @@
+# Node.js
+node_modules
+
+# Environment Variables
+*.env
+
+# IDE (WebStorm)
+.idea
+
+# Config (JSON)
+*.json
