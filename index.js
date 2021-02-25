@@ -135,6 +135,43 @@ client.on('message', message => {
       message.channel.send({embed})
     }
   }
+	if (message.channel.id == "812312981949906964") {
+    if (message.author.bot) return;
+    let text = message.content.toLowerCase().split(" ").join(" ");
+            text=text.replace(/\n/g, "\n");
+            text=text.replace(/(\r\n|\n|\r)/gm,"\n");
+      if (text.includes("description:") && text.includes("responsibilities:")) {
+        if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g.test(message.content)) {
+          message.delete()
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x2F3136)).then(msg => {
+          msg.delete({timeout:15000})
+        })
+        }
+        if (m == null) {}
+        else { m.delete().catch(() => {}) }
+        m = await message.channel.send(new Discord.MessageEmbed().setColor(0x2F3136).setTitle(`**Contribution Format**`)
+.setDescription(`\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``)
+.setColor(0x2F3136)
+.setThumbnail(client.user.displayAvatarURL())
+.setFooter(`Follow this format, or your post will be deleted`))
+        await setTimeout(() => {
+          message.suppressEmbeds()
+        }, 5000)
+      } else {
+        if (message.member.roles.cache.has("811624037356011552")) {} else {
+        if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g.test(message.content)) {
+          message.delete()
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x2F3136)).then(msg => {
+          msg.delete({timeout:15000})
+        })
+        } else {
+        message.delete()
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x2F3136)).then(msg => {
+          msg.delete({timeout:15000})
+        })
+        }}
+      }
+  }
 })
 
 client.on('messageDelete', async message => {
