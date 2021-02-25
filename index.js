@@ -1,7 +1,6 @@
 const fs = require('fs');
 const moment = require('moment');
 
-const keep_alive = require('./keep_alive.js');
 const {
     Client,
     MessageEmbed,
@@ -104,7 +103,7 @@ client.ws.on('INTERACTION_CREATE', async interaction => {
   }
 })
 
-client.on('message', message => {
+client.on('message', async message => {
   if (message.content == "snipe") {
     let tosnipe = snipe
     if (snipe.message == undefined || snipe.message == null) {
