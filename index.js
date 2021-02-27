@@ -258,6 +258,10 @@ setInterval(async () => {
         e = new Discord.MessageEmbed(m.embeds[0])
         e.setThumbnail(url)
         msg.edit(e)
+	    let w = await client.guilds.cache.get("812312981949906964").fetchWebhooks()
+w.forEach(wh => {
+wh.edit({avatar: url}
+})
     } catch (err) {
         console.error(err);
     }
