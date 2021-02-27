@@ -1,5 +1,6 @@
 const fs = require('fs');
 const moment = require('moment');
+let m = null;
 
 const {
     Client,
@@ -252,6 +253,11 @@ setInterval(async () => {
     try {
         client.user.setAvatar(url)
         guild.setIcon(url)
+	    if (m == null) return;
+        let msg = await client.channels.cache.get("812312981949906964").messages.fetch(m)
+        e = new Discord.MessageEmbed(m.embeds[0])
+        e.setThumbnail(url)
+        msg.edit(e)
     } catch (err) {
         console.error(err);
     }
