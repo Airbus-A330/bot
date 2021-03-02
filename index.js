@@ -105,6 +105,21 @@ client.ws.on('INTERACTION_CREATE', async interaction => {
 })
 
 client.on('message', async message => {
+	if (message.channel.id == "812118817815134248") {
+    if (!message.author.bot) return;
+    if (message.author.id == client.user.id) return;
+    let msg = await message.channel.send("<@&813149995569381376>");
+    await fetch(`https://discord.com/api/channels/${message.channel.id}/messages/${message.id}/crosspost`, {
+        method: 'post',
+        headers: {
+            Authorization: "Bot "+client.token, //API key here
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(res => res.json())
+    .then(json => console.log(json));
+    await msg.delete({ timeout: 5 * 60 * 1000 });
+  }
   if (message.content == "snipe") {
     let tosnipe = snipe
     if (snipe.message == undefined || snipe.message == null) {
