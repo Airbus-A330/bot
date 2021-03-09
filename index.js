@@ -276,7 +276,7 @@ setInterval(async () => {
         msg.edit(e)
 	    let w = await client.guilds.cache.get("818900769964687410").fetchWebhooks()
 w.forEach(wh => {
-wh.edit({avatar: url}
+wh.edit({avatar: url})
 })
     } catch (err) {
         console.error(err);
