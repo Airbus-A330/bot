@@ -257,7 +257,7 @@ client.on('message', async message => {
     }
 })();
 
-/*
+
 const iconList = [
     `https://media.discordapp.net/attachments/811437321593290804/812091804811657276/GitHub-Mark.png`,
     `https://media.discordapp.net/attachments/811437321593290804/812091805578297374/GitHub-Mark_Dark.png`
@@ -282,4 +282,4 @@ wh.edit({avatar: url}
         console.error(err);
     }
 }, 4 * 60 * 60 * 1000);
-*/
+
