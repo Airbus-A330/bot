@@ -150,7 +150,7 @@ client.on('message', async message => {
       message.channel.send({embed})
     }
   }
-	if (message.channel.id == "812312981949906964") {
+	if (message.channel.id == "818900769964687410") {
     if (message.author.bot) return;
     let text = message.content.toLowerCase().split(" ").join(" ");
             text=text.replace(/\n/g, "\n");
@@ -270,11 +270,11 @@ setInterval(async () => {
         client.user.setAvatar(url)
         guild.setIcon(url)
 	    if (m == null) return;
-        let msg = await client.channels.cache.get("812312981949906964").messages.fetch(m)
+        let msg = await client.channels.cache.get("818900769964687410").messages.fetch(m)
         e = new Discord.MessageEmbed(m.embeds[0])
         e.setThumbnail(url)
         msg.edit(e)
-	    let w = await client.guilds.cache.get("812312981949906964").fetchWebhooks()
+	    let w = await client.guilds.cache.get("818900769964687410").fetchWebhooks()
 w.forEach(wh => {
 wh.edit({avatar: url}
 })
