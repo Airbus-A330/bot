@@ -194,9 +194,9 @@ client.on('message', async message => {
       if (text.startsWith("```") && text.endsWith("```")) {
         if (m == null) {}
         else { m.delete().catch(() => {}) }
-        m = await message.channel.send(new Discord.MessageEmbed().setColor(0x2F3136).setTitle(`**Snippet Format**`)
+        m = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Snippet Format**`)
 .setDescription(`Post your snippet in a code block.`)
-.setColor(0x2F3136)
+.setColor(0x8b949e)
 .setThumbnail(client.user.displayAvatarURL())
 .setFooter(`Follow this format, or your post will be deleted`))
         await setTimeout(() => {
@@ -205,7 +205,7 @@ client.on('message', async message => {
       } else {
         if (message.member.roles.cache.has("811624037356011552")) {} else {
         message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please post your snippet in a code block.`).setColor(0x2F3136)).then(msg => {
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please post your snippet in a code block.`).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
         })
         }
