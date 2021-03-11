@@ -22,6 +22,7 @@ console.log(require('child_process').execSync('node -v').toString());
 
 const { prefix, status } = require('./config.json');
 const logger = require('./util/log.js');
+const Discord = require('discord.js');
 
 client.on('debug', console.log)
 
