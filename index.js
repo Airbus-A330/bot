@@ -150,7 +150,7 @@ client.on('message', async message => {
       message.channel.send({embed})
     }
   }
-	if (message.channel.id == "818900769964687410") {
+	if (message.channel.id == "819373986160181258") {
     if (message.author.bot) return;
     let text = message.content.toLowerCase().split(" ").join(" ");
             text=text.replace(/\n/g, "\n");
