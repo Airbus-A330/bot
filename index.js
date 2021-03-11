@@ -135,7 +135,7 @@ client.on('message', async message => {
         //`**Author: **${tosnipe.message.author.tag} (${tosnipe.message.author.id})`,
         //`**Reference:** ${(tosnipe.message.reference == null) ? "N/A" : "<https://discord.com/channels/"+tosnipe.message.reference.guildID+"/"+tosnipe.message.reference.channelID+"/"+tosnipe.message.reference.messageID+">"}`
       ].join("\n"),
-        "color": 0x2F3136//,
+        "color": 0x8b949e//,
         /*"timestamp": tosnipe.message.deleted.timestamp,
         "footer": {
           "text": `Message deleted by ${(tosnipe.auditLog == undefined || tosnipe.auditLog == null) ? "an unknown user" : tosnipe.auditLog.executor.username} during `,
@@ -158,15 +158,15 @@ client.on('message', async message => {
       if (text.includes("description:") && text.includes("responsibilities:")) {
         if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g.test(message.content)) {
           message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x2F3136)).then(msg => {
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
         })
         }
         if (m == null) {}
         else { m.delete().catch(() => {}) }
-        m = await message.channel.send(new Discord.MessageEmbed().setColor(0x2F3136).setTitle(`**Contribution Format**`)
+        m = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Contribution Format**`)
 .setDescription(`\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``)
-.setColor(0x2F3136)
+.setColor(0x8b949e)
 .setThumbnail(client.user.displayAvatarURL())
 .setFooter(`Follow this format, or your post will be deleted`))
         await setTimeout(() => {
@@ -176,12 +176,12 @@ client.on('message', async message => {
         if (message.member.roles.cache.has("811624037356011552")) {} else {
         if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g.test(message.content)) {
           message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x2F3136)).then(msg => {
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
         })
         } else {
         message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x2F3136)).then(msg => {
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
         })
         }}
