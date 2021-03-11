@@ -27,7 +27,7 @@ module.exports = {
 
 
             const embed = new MessageEmbed()
-                .setColor(`#2F3136`)
+                .setColor(`#8b949e`)
                 .setFooter(`Executed by: ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
                 .setDescription("**Output:**\n```JS\n" + evaled.slice(0, 1990) + "```");
