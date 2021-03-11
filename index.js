@@ -105,10 +105,10 @@ client.ws.on('INTERACTION_CREATE', async interaction => {
 })
 
 client.on('message', async message => {
-	if (message.channel.id == "812118817815134248") {
+	if (message.channel.id == "819385990233849906") {
     if (!message.author.bot) return;
     if (message.author.id == client.user.id) return;
-    let msg = await message.channel.send("<@&813149995569381376>");
+    //let msg = await message.channel.send("<@&813149995569381376>");
     await fetch(`https://discord.com/api/channels/${message.channel.id}/messages/${message.id}/crosspost`, {
         method: 'post',
         headers: {
@@ -150,7 +150,7 @@ client.on('message', async message => {
       message.channel.send({embed})
     }
   }
-	if (message.channel.id == "818900769964687410") {
+	if (message.channel.id == "819373986160181258") {
     if (message.author.bot) return;
     let text = message.content.toLowerCase().split(" ").join(" ");
             text=text.replace(/\n/g, "\n");
@@ -185,6 +185,30 @@ client.on('message', async message => {
           msg.delete({timeout:15000})
         })
         }}
+      }
+		if (message.channel.id == "819386292760215562") {
+    if (message.author.bot) return;
+    let text = message.content.toLowerCase().split(" ").join(" ");
+            text=text.replace(/\n/g, "\n");
+            text=text.replace(/(\r\n|\n|\r)/gm,"\n");
+      if (text.startsWith("```") && text.endsWith("```")) {
+        if (m == null) {}
+        else { m.delete().catch(() => {}) }
+        m = await message.channel.send(new Discord.MessageEmbed().setColor(0x2F3136).setTitle(`**Snippet Format**`)
+.setDescription(`Post your snippet in a code block.`)
+.setColor(0x2F3136)
+.setThumbnail(client.user.displayAvatarURL())
+.setFooter(`Follow this format, or your post will be deleted`))
+        await setTimeout(() => {
+          message.suppressEmbeds()
+        }, 5000)
+      } else {
+        if (message.member.roles.cache.has("811624037356011552")) {} else {
+        message.delete()
+        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please post your snippet in a code block.`).setColor(0x2F3136)).then(msg => {
+          msg.delete({timeout:15000})
+        })
+        }
       }
   }
 })
@@ -276,7 +300,7 @@ setInterval(async () => {
         msg.edit(e)
 	    let w = await client.guilds.cache.get("818900769964687410").fetchWebhooks()
 w.forEach(wh => {
-wh.edit({avatar: url}
+wh.edit({avatar: url})
 })
     } catch (err) {
         console.error(err);
