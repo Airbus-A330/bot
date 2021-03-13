@@ -1,0 +1,194 @@
+ <!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>GitHub Account Verification</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+ <link rel="icon" 
+      type="image/gif" 
+      href="https://cdn.discordapp.com/avatars/811451619010936832/6d9aea710291630b000a787453ca206f.png?size=256"
+    >
+
+</head>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAMkTys90OJUnUHY-jG6opqbqw_IfIhbkg",
+    authDomain: "github-auth-verification.firebaseapp.com",
+    projectId: "github-auth-verification",
+    storageBucket: "github-auth-verification.appspot.com",
+    messagingSenderId: "478734250391",
+    appId: "1:478734250391:web:88cad960fbe071253254d2",
+    measurementId: "G-ZT0DR2KK74"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script>
+      function hide(str) {
+  var x = document.getElementById(str);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function show(str) {
+  var x = document.getElementById(str);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+        window.onload = () => {
+			const code = location.href.substring(location.href.indexOf("code")+5, location.href.length)
+			if (location.href.indexOf("code") > -1) {
+                const req = new XMLHttpRequest()
+                req.open("POST", "https://Alternative-Bot.vietnamairlines.repl.co")
+                req.send(code)
+                req.onload = () => {
+                    hide("login_button")
+                     hide("prelogin_welcome_head")
+                     hide("prelogin_welcome_body")
+                     hide("disclaimer_1")
+                     hide("links")
+                    document.getElementById("display_result_1").innerText = `Welcome, `
+                    document.getElementById("display_result_2").innerText=`\xa0${JSON.parse(req.responseText).user.username}#${JSON.parse(req.responseText).user.discriminator}!`
+                    if (JSON.parse(req.responseText).connections.length == 0) {
+                      document.getElementById("disclaimer").innerText = "You are lacking a GitHub account! You can't continue to this server without one!"
+                    } else {
+                     document.getElementById("disclaimer").innerText = "Thanks for verifying your GitHub account! You can continue to our server now."
+                    }
+                     document.getElementById("avatar").src=`https://cdn.discordapp.com/avatars/${JSON.parse(req.responseText).user.id}/${JSON.parse(req.responseText).user.avatar}`
+                     document.getElementById("form_guide").innerText="Please fill out the staff application form below."
+                     document.getElementById("google_form").src=`https://docs.google.com/forms/d/e/1FAIpQLSdcy92t-nZAkvVQ2WH_DtlAWfyEq0jeO_m0GEQBu1aunIKSsg/viewform?usp=pp_url&entry.982248043=${JSON.parse(req.responseText).id}&entry.844004652=${JSON.parse(req.responseText).username}%23${JSON.parse(req.responseText).discriminator}`
+                }
+
+			}
+		}
+    </script>
+<style>
+  body {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+}
+img {
+  width: 42px;
+  height: 42px;
+  float: left;
+  border-radius: 50%;
+}
+iframe{
+    overflow:hidden;
+}
+.center {
+  display: block;
+  margin-left: 650px;
+  margin-right: auto;
+  width: 5%;
+  height: 5%;
+  margin: auto 800px;
+  
+
+}
+.button {
+  background-color: #7289da; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #42f584
+}
+
+.center {
+  left: auto;
+  right: 300px;
+  height: 100px;
+  width: 100px;
+  vertical-align: middle;
+
+}
+
+
+</style>
+
+
+ 
+
+<body>
+  <h1 id = "display_result_1">
+</h1>
+
+ <!-- <img class = "resize" id = "avatar" style="vertical-align:middle"> -->
+  <h2 id = "display_result_2">
+    </h2>
+   
+
+<br>
+<br>
+<br>
+<br>
+<br>
+    <center><h1 id = "prelogin_welcome_head" style="bold">   Welcome</h1></center>
+    <center><h4 id = "prelogin_welcome_body">Please login before continuing.</h4></center>
+    <center><p id = "disclaimer_1"> We need to verify your GitHub account.</p></center>
+    <center><p id = "links"><a href="https://github.com/havishpallerla/GitBot" target="_blank">Our GitHub</a> | <a href="https://discord.gg/hkDhAbfZm4" target="_blank">Discord</a></p></center>
+    <br>
+    <div><strong id = "disclaimer"></strong></div>
+    <div id = "user_id"></div>
+    <div id = "user_email"></div>
+    <br>
+    <p><em id = "small_disclaimer"></em></p>
+    <br>
+    <p><strong id = "form_guide"></strong></p>
+    <!-- https://docs.google.com/forms/d/e/1FAIpQLSdcy92t-nZAkvVQ2WH_DtlAWfyEq0jeO_m0GEQBu1aunIKSsg/viewform?usp=pp_url&entry.982248043=1234567890010101010&entry.844004652=123123%231231?embedded=true -->
+
+    <iframe 
+    id = "google_form" width="1000" height="2061" frameborder="2" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <center><a href="https://discord.com/api/oauth2/authorize?client_id=811451619010936832&redirect_uri=https%3A%2F%2FAlternative-Bot.vietnamairlines.repl.co&response_type=code&scope=identify%20connections"class="button" id = "login_button">Login With Discord</a></center>
+    
+    <script>
+      function hide(str) {
+  var x = document.getElementById(str);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function show(str) {
+  var x = document.getElementById(str);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+hide("google_form")
+      </script>
+</form>
+</body>
+</html>

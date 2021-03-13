@@ -1,5 +1,6 @@
 const fs = require('fs');
 const moment = require('moment');
+const keepalive = require("./secondary.js");
 let m = null;
 
 const {
@@ -211,7 +212,7 @@ client.on('message', async message => {
         })
         }
       }
-  }
+  }}
 })
 
 client.on('messageDelete', async message => {
@@ -276,7 +277,7 @@ client.on('message', async message => {
 
 (async () => {
     try {
-        await client.login(require("./config.json").token);
+        await client.login(process.env.TOKEN);
     } catch (err) {
         logger.error(err);
     }
