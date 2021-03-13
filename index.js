@@ -2,6 +2,7 @@ const fs = require('fs');
 const moment = require('moment');
 const keepalive = require("./secondary.js");
 let m = null;
+let n = null;
 
 const {
     Client,
@@ -160,16 +161,16 @@ client.on('message', async message => {
       if (text.includes("description:") && text.includes("responsibilities:")) {
         if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g.test(message.content)) {
           message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
+        /*message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
-        })
+        })*/
         }
         if (m == null) {}
         else { m.delete().catch(() => {}) }
         m = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Contribution Format**`)
 .setDescription(`\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``)
 .setColor(0x8b949e)
-.setThumbnail(client.user.displayAvatarURL())
+.setThumbnail("https://cdn.discordapp.com/emojis/819419710889656343.png?v=1")
 .setFooter(`Follow this format, or your post will be deleted`))
         await setTimeout(() => {
           message.suppressEmbeds()
@@ -178,28 +179,30 @@ client.on('message', async message => {
         if (message.member.roles.cache.has("811624037356011552")) {} else {
         if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g.test(message.content)) {
           message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
+        /*message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
-        })
+        })*/
         } else {
         message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
+        /*message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please use the following format:\n\n\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
-        })
+        })*/
         }}
       }
-		if (message.channel.id == "819386292760215562") {
+
+  }
+  if (message.channel.id == "819386292760215562") {
     if (message.author.bot) return;
     let text = message.content.toLowerCase().split(" ").join(" ");
             text=text.replace(/\n/g, "\n");
             text=text.replace(/(\r\n|\n|\r)/gm,"\n");
       if (text.startsWith("```") && text.endsWith("```")) {
-        if (m == null) {}
-        else { m.delete().catch(() => {}) }
-        m = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Snippet Format**`)
+        if (n == null) {}
+        else { n.delete().catch(() => {}) }
+        n = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Snippet Format**`)
 .setDescription(`Post your snippet in a code block.`)
 .setColor(0x8b949e)
-.setThumbnail(client.user.displayAvatarURL())
+.setThumbnail("https://cdn.discordapp.com/emojis/819419710751768647.png?v=1")
 .setFooter(`Follow this format, or your post will be deleted`))
         await setTimeout(() => {
           message.suppressEmbeds()
@@ -207,12 +210,12 @@ client.on('message', async message => {
       } else {
         if (message.member.roles.cache.has("811624037356011552")) {} else {
         message.delete()
-        message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please post your snippet in a code block.`).setColor(0x8b949e)).then(msg => {
+        /*message.channel.send(new Discord.MessageEmbed().setDescription(`Your post violates our formatting.  Please post your snippet in a code block.`).setColor(0x8b949e)).then(msg => {
           msg.delete({timeout:15000})
-        })
+        })*/
         }
       }
-  }}
+  }
 })
 
 client.on('messageDelete', async message => {
@@ -295,15 +298,23 @@ setInterval(async () => {
     try {
         client.user.setAvatar(url)
         guild.setIcon(url)
-	    if (m == null) return;
-        let msg = await client.channels.cache.get("818900769964687410").messages.fetch(m)
-        e = new Discord.MessageEmbed(m.embeds[0])
-        e.setThumbnail(url)
-        msg.edit(e)
 	    let w = await client.guilds.cache.get("818900769964687410").fetchWebhooks()
 w.forEach(wh => {
 wh.edit({avatar: url})
 })
+/*
+ if (m !== null) {
+        let msg = await client.channels.cache.get("818900769964687410").messages.fetch(m)
+        e = new Discord.MessageEmbed(m.embeds[0])
+        e.setThumbnail(url)
+        msg.edit(e)
+ }
+ if (n !== null) {
+        let msg = await client.channels.cache.get("819386292760215562").messages.fetch(m)
+        e = new Discord.MessageEmbed(m.embeds[0])
+        e.setThumbnail(url)
+        msg.edit(e)
+ }*/
     } catch (err) {
         console.error(err);
     }
