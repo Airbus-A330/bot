@@ -9,3 +9,6 @@ node_modules
 
 # Config (JSON)
 *.json
+
+#REPL.it (.replit)
+*.replit
