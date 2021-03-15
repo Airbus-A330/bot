@@ -199,7 +199,7 @@ client.on('message', async message => {
         if (n == null) {}
         else { n.delete().catch(() => {}) }
         n = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Snippet Format**`)
-.setDescription(`[\`\`\`Post your snippet in a code block.\`\`\`](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-#:~:text=three%20backticks "Click me for more information about code blocks!")`)
+.setDescription(`[\`\`\`Post your snippet in a code block.\`\`\`](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-#:~:text=three%20backticks "For more information about code blocks, click me.")`)
 .setColor(0x8b949e)
 .setThumbnail("https://cdn.discordapp.com/emojis/819419710751768647.png?v=1"))
         await setTimeout(() => {
