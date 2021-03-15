@@ -170,8 +170,7 @@ client.on('message', async message => {
         m = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Contribution Format**`)
 .setDescription(`\`\`\`\n[link]\n\n**Description:** (text)\n**Responsibilities:** (text)\`\`\``)
 .setColor(0x8b949e)
-.setThumbnail("https://cdn.discordapp.com/emojis/819419710889656343.png?v=1")
-.setFooter(`Follow this format, or your post will be deleted`))
+.setThumbnail("https://cdn.discordapp.com/emojis/819419710889656343.png?v=1"))
         await setTimeout(() => {
           message.suppressEmbeds()
         }, 5000)
@@ -200,10 +199,9 @@ client.on('message', async message => {
         if (n == null) {}
         else { n.delete().catch(() => {}) }
         n = await message.channel.send(new Discord.MessageEmbed().setColor(0x8b949e).setTitle(`**Snippet Format**`)
-.setDescription(`Post your snippet in a code block.`)
+.setDescription(`[\`\`\`Post your snippet in a code block.\`\`\`](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-#:~:text=three%20backticks "Click me for more information about code blocks!")`)
 .setColor(0x8b949e)
-.setThumbnail("https://cdn.discordapp.com/emojis/819419710751768647.png?v=1")
-.setFooter(`Follow this format, or your post will be deleted`))
+.setThumbnail("https://cdn.discordapp.com/emojis/819419710751768647.png?v=1"))
         await setTimeout(() => {
           message.suppressEmbeds()
         }, 5000)
