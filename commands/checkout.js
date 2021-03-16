@@ -48,15 +48,6 @@ module.exports = {
             .setURL(`https://github.com/${base.login}`)
             .setThumbnail(base.avatar_url)
             .setDescription(`${base.bio == undefined || base.bio == null ? "" : "```" + base.bio + "```\n"}[${base.followers.toLocaleString()}](https://github.com/${base.login}?tab=followers) Followers • [${base.following.toLocaleString()}](https://github.com/${base.login}?tab=following) Following\n${(base.company == undefined || base.company == null) ? "`" + base.login + " doesn't work anywhere!`" : (base.company.split(" ").length == 2) ? "Works at `" + base.company.split(" ").join(" & ") + "`" : (base.company.split(" ").length > 2) ? "Works at `" + base.company.split(" ").join(", ").split(", ").reverse().replace(", ", " & ").split(", ").reverse().join(", ") + "`" : "Works at `" + base.company + "`"}\n${(base.twitter_username == null || base.twitter_username == undefined) ? "" : "[" + base.login + "'s Twitter](https://twitter.com" + base.twitter_username + ")\n"} ${(base.blog == undefined || base.blog == null || base.blog == "") ? "" : "[" + base.login + "'s website](https://" + base.blog + ")\n"}`)
-            if (orgs == undefined || orgs == null || orgs.length == 0) {
-              embed.addField(`**Organizations [0]:**`, `‎${base.login} isn't part of any organizations!`, true)
-            } else {
-              let final = "";
-              orgs.forEach(o => {
-                final+= `• [${o.login}](${o.url})\n`
-              })
-              embed.addField(`**Organizations [${orgs.length}]:**`, "‎" + final, true)
-            }
             let str = ""
             if (followers.length > 10) {
             for (f = 0; f < 10; f++) {
@@ -83,6 +74,15 @@ module.exports = {
             }
             if (str1 == "") str1 = `${base.login} isn't following anyone!`
             embed.addField(`**Following [${base.following.toLocaleString()}]:**`, str1, true)
+            if (orgs == undefined || orgs == null || orgs.length == 0) {
+              embed.addField(`**Organizations [0]:**`, `‎${base.login} isn't part of any organizations!`, true)
+            } else {
+              let final = "";
+              orgs.forEach(o => {
+                final+= `• [${o.login}](${o.url})\n`
+              })
+              embed.addField(`**Organizations [${orgs.length}]:**`, "‎" + final, true)
+            }
           message.channel.send(embed)
         }
     
