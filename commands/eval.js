@@ -6,13 +6,14 @@ module.exports = {
     name: 'eval',
     description: 'Owner command that runs code',
     usage: null,
+    aliases: ["e", "evaluate", "evaluation"],
     async execute(message, args) {
         const { client } = message;
         const { execSync } = require('child_process');
         
         if (!client.developers.includes(message.author.id)) return;
 
-        const code = message.content.split(' ').slice(1).join(' ')
+        const code = args.join(" ")
 
         logger.warn(`!eval used by ${message.author.tag} (${message.author.id})`)
 

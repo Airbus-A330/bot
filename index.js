@@ -22,11 +22,32 @@ Object.assign(client, {
 
 console.log(require('child_process').execSync('node -v').toString());
 
-const { prefix, status } = require('./config.json');
+const { prefix, status, DEFAULT } = require('./config.json');
 const logger = require('./util/log.js');
 const Discord = require('discord.js');
 
 client.on('debug', console.log)
+const MonitoRSS = require('monitorss')
+
+// Some configs are mandatory - refer to documentation
+const config = {
+  bot: {
+    token: process.env.TOKEN,
+    prefix: "17236t723ti62t16t6312t6326i213t6t23t623t6126t213"
+  },
+  database: {
+    // Can be mongodb or folder URI
+    uri: './profiles'
+  }
+}
+
+const settings = {
+  setPresence: false,
+  config
+}
+
+//const oi = new MonitoRSS.ClientManager(settings)
+//oi.start()
 
 client.on('ready', async () => {
     /*
@@ -249,10 +270,16 @@ client.on('messageDelete', async message => {
 })
 
 client.commands = new Collection();
+client.aliases = new Discord.Collection()
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
+    if (command.aliases) {
+    command.aliases.forEach(alias => {
+        client.aliases.set(alias, command)
+    })
+}
 }
 
 client.on('message', async message => {
@@ -263,10 +290,10 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    const cmd = client.commands.get(command);
+    const cmd = client.commands.get(command) || client.aliases.get(command);
     if (!cmd) return;
     try {
-        cmd.execute(message, args);
+        cmd.execute(message, args, DEFAULT);
     } catch (error) {
         const embed = new MessageEmbed()
             .setDescription('There was an error in attempting to execute that command.')
