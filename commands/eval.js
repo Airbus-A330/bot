@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const { MessageEmbed, Collection, Client } = Discord;
 const logger = require('../util/log.js');
+const Database = require("@replit/database");
+const db = new Database();
 
 module.exports = {
     name: 'eval',
