@@ -27,7 +27,7 @@ const logger = require('./util/log.js');
 const Discord = require('discord.js');
 
 client.on('debug', console.log)
-const MonitoRSS = require('monitorss')
+/*const MonitoRSS = require('monitorss')
 
 // Some configs are mandatory - refer to documentation
 const config = {
@@ -46,8 +46,8 @@ const settings = {
   config
 }
 
-//const oi = new MonitoRSS.ClientManager(settings)
-//oi.start()
+const oi = new MonitoRSS.ClientManager(settings)
+oi.start()*/
 
 client.on('ready', async () => {
     /*
@@ -325,7 +325,7 @@ setInterval(async () => {
         client.user.setAvatar(url)
         guild.setIcon(url)
         guild2.setIcon(url)
-	    let w = await client.guilds.cache.get("818900769964687410").fetchWebhooks()
+	    let w = await client.guilds.cache.get("811436417824718878").fetchWebhooks()
 w.forEach(wh => {
 wh.edit({avatar: url})
 })
