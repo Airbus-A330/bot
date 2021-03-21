@@ -88,7 +88,7 @@ module.exports = {
 					}
 				} catch (error) {
           console.log(error)
-					message.channel.send(new Discord.MessageEmbed().setDescription(`That's not an existing GitHub username!`).setColor(DEFAULT))
+					message.channel.send(new Discord.MessageEmbed().setDescription(`That's not an existing GitHub username or an error has occured.  If you believe this is a mistake, contact the bot developers.`).setColor(DEFAULT))
 				}
 
 			}
