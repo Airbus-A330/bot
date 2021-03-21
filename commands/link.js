@@ -69,9 +69,7 @@ module.exports = {
 							await db.set(`${message.author.id}.github`, base)
               message.channel.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`Congratulations!  We were able to successfully verify that you own your GitHub account.  You now have the <@&821589318199279616> role as you completed the verification successfully.  Thank you!`))
 							let role = message.guild.roles.cache.get("821589318199279616")
-							message.member.roles.add(role, {
-								reason: "Verified via Github integration"
-							})
+							message.member.roles.add(role, "Verified via Github integration")
 						} else {
 							message.channel.send(new Discord.MessageEmbed().setDescription(`Hmm.. we couldn't verify that account belongs to you.  We'll try again in 15 seconds.`).setColor(DEFAULT))
 							setTimeout(async _ => {
