@@ -33,7 +33,7 @@ module.exports = {
           return message.channel.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`You're already verified!`))
         }
 				if (key == undefined || key == null) {
-					var sequence = Buffer.from(`{ "user_id": "${message.author.id}", "timestamp_generated", "${Date.now()}" }`).toString('base64')
+					var sequence = Buffer.from(`{ "id": "${message.author.id}", "timestamp", "${Date.now()}" }`).toString('base64')
 					await db.set(`${message.author.id}.key`, sequence)
 					message.author.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`To connect your GitHub account with Discord, we need to make sure it's really you  Follow the steps below for instructions on how to verify your account.  Please refer to the key below as your verification key.\n\`\`\`GitHub Discord Integration: ${sequence}\`\`\``).addField(`**Instructions:**`, `**1.** Log into your GitHub account\n**2.** Paste the verification key (as shown above) into your bio.  Make sure __all of it__ was pasted.\n**3.** Run \`git link -verify [your GitHub username here]\`\n\nIf there was an error verifying your account, the bot will let you know and retry after 15 seconds.\n\nIf you are having problems with verification, please reply to this message and our support staff will be in touch with you.`)).catch(err => {
 						message.reply(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`We weren't able to DM you with your verification key and instructions.  This is usually because you either have DMs for this server off, or you have us blocked.  Please correct this issue immediately.  We're going to retry in 30 seconds.`))
