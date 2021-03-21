@@ -284,7 +284,7 @@ for (const file of commandFiles) {
 
 client.on('message', async message => {
     if (message.author.bot) return;
-    
+    if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
