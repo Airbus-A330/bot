@@ -1,0 +1,29 @@
+{
+  "_id": "feedConfig",
+  "value": {
+    "refreshRateMinutes": 10,
+    "articleDequeueRate": 1,
+    "articleRateLimit": 0,
+    "articleDailyChannelLimit": 0,
+    "timezone": "UTC",
+    "dateFormat": "ddd, D MMMM YYYY, h:mm A z",
+    "dateLanguage": "en",
+    "dateLanguageList": [
+      "en"
+    ],
+    "dateFallback": false,
+    "timeFallback": false,
+    "max": 0,
+    "hoursUntilFail": 0,
+    "notifyFail": true,
+    "sendFirstCycle": true,
+    "cycleMaxAge": 1,
+    "defaultText": ":newspaper:  |  **{title}**\n\n{link}\n\n{subscribers}",
+    "imgPreviews": true,
+    "imgLinksExistence": true,
+    "checkDates": true,
+    "formatTables": false,
+    "directSubscribers": false,
+    "decode": {}
+  }
+}

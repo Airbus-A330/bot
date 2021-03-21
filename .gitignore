@@ -7,8 +7,5 @@ node_modules
 # IDE (WebStorm)
 .idea
 
-# Config (JSON)
-*.json
-
 #REPL.it (.replit)
 *.replit
