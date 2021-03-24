@@ -237,6 +237,7 @@ client.on('message', async message => {
   }
 })
 
+/*
 client.on('messageDelete', async message => {
   Object.assign(snipe, {
     message: message
@@ -267,7 +268,7 @@ client.on('messageDelete', async message => {
     }
   }
   console.log(snipe)
-})
+})*/
 
 client.commands = new Collection();
 client.aliases = new Discord.Collection()
@@ -305,7 +306,7 @@ client.on('message', async message => {
 
 (async () => {
     try {
-        await client.login(process.env.TOKEN);
+        await client.login(process.env.TOKEN).catch(console.error);
     } catch (err) {
         logger.error(err);
     }
