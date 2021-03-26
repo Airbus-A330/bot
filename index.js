@@ -17,7 +17,7 @@ var snipe = {};
 Object.assign(client, {
     cross: '<:cross:790687235376676924>',
     check: '<:checkmark:790687108879613993>',
-    developers: ['437019658374348801', '234464614996246529', '272659147974115328', '779902922674274304']
+    developers: ['437019658374348801', '272659147974115328', '779902922674274304', "738604939957239930"]
 });
 
 console.log(require('child_process').execSync('node -v').toString());
@@ -110,21 +110,94 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
 // })
 
 client.ws.on('INTERACTION_CREATE', async interaction => {
-  console.log(interaction.data)
-  if (interaction.data.name == "eval") {
-    if (!client.developers.includes(message.author.id)) { 
-      client.api.interactions(interaction.id)(interaction.token).callback.post({
+  console.log(interaction.data.options[0].options)
+  try {
+  if (interaction.data.name == "help") {
+    let message = {
+      author: interaction.member.user,
+      channel: client.channels.cache.get(interaction.channel_id),
+      guild: client.guilds.cache.get(interaction.guild_id),
+      content: "git help"
+    }
+
+     client.api.interactions(interaction.id)(interaction.token).callback.post({
       data: {
         type: 4,
         data: {
-          content: `<@${interaction.member.user.id}>, you are not an **authorized developer** with clearance to perform this command.`,
+          embeds: [
+            {
+              color: 9805221,
+              footer: {
+                text: "Executed via slash command"
+              }
+            }
+          ]
+        }
+      }
+    })
+    client.emit("message", message)
+  }
+  if (interaction.data.name == "check" && interaction.data.options[0].name == "repository") {
+    let message = {
+      author: interaction.member.user,
+      channel: client.channels.cache.get(interaction.channel_id),
+      guild: client.guilds.cache.get(interaction.guild_id),
+      content: `git check -repository ${interaction.data.options[0].options[0].value}`
+    }
+
+     client.api.interactions(interaction.id)(interaction.token).callback.post({
+      data: {
+        type: 4,
+        data: {
+          embeds: [
+            {
+              color: 9805221,
+              footer: {
+                text: "Executed via slash command"
+              }
+            }
+          ]
+        }
+      }
+    })
+    client.emit("message", message)
+  }
+  if (interaction.data.name == "check" && interaction.data.options[0].name == "user") {
+    let message = {
+      author: interaction.member.user,
+      channel: client.channels.cache.get(interaction.channel_id),
+      guild: client.guilds.cache.get(interaction.guild_id),
+      content: `git check -user ${interaction.data.options[0].options[0].value}`
+    }
+
+     client.api.interactions(interaction.id)(interaction.token).callback.post({
+      data: {
+        type: 4,
+        data: {
+          embeds: [
+            {
+              color: 9805221,
+              footer: {
+                text: "Executed via slash command"
+              }
+            }
+          ]
+        }
+      }
+    })
+    client.emit("message", message)
+  }
+  } catch (error) {
+      client.api.interactions(interaction.id)(interaction.token).callback.post({
+      data: {
+        type: 5,
+        data: {
+          content: `<@${interaction.member.user.id}>, there was an error executing this command.  Please try again later.`,
           flags: 64
         }
       }
     })
     return;
-    }
-
   }
 })
 

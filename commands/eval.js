@@ -9,7 +9,7 @@ module.exports = {
     description: 'Owner command that runs code',
     usage: null,
     aliases: ["e", "evaluate", "evaluation"],
-    async execute(message, args) {
+    async execute(message, args, DEFAULT) {
         const { client } = message;
         const { execSync } = require('child_process');
         
