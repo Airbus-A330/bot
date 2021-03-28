@@ -110,7 +110,8 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
 // })
 
 client.ws.on('INTERACTION_CREATE', async interaction => {
-  console.log(interaction.data.options[0].options)
+  if (client.channels.cache.get(interaction.channel_id).type == "dm") return;
+  console.log(interaction.data)
   try {
   if (interaction.data.name == "help") {
     let message = {
