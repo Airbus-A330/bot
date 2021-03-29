@@ -1,6 +1,10 @@
 const fs = require('fs');
 const moment = require('moment');
 const keepalive = require("./secondary.js");
+const fetch = require("node-fetch");
+const Database = require("@replit/database");
+const db = new Database();
+
 let m = null;
 let n = null;
 
@@ -93,6 +97,38 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
           }
     })
     }, 30 * 1000)*/
+    setInterval(async _ => {
+    let f = await fetch("https://github.community/latest.json", {
+      method: "get"
+    });
+    f = await f.json();
+    f = f.topic_list.topics;
+    for (let i = 0; i < 10; i++) {
+      if (f[i].pinned_globally !== true) {
+        let check = await db.get("lastCommPost");
+        if (check !== f[i].id) {
+          await db.set("lastCommPost", f[i].id);
+          embed = new Discord.MessageEmbed()
+            .setTitle(`**${f[i].fancy_title}**`)
+            .setURL(`https://github.community/t/${f[i].slug}/${f[i].id}/`)
+            .setFooter(`Created at ${new Date(f[i].created_at).toLocaleString()} | Last edited at ${new Date(f[i].last_posted_at).toLocaleString()}`)
+            .setDescription("```" + f[i].excerpt + "```")
+            .addField(`**Details:**`, `> • Views: \`${f[i].views}\`\n> • Likes: \`${f[i].like_count}\`\n> • Tags: ${(f[i].tags.length == 0) ? "`No tags!`" : "`" + f[i].tags.join("`, `") + "`"}`)
+            .setAuthor(f[i].last_poster_username)
+            .setImage(f[i].image_url)
+            .setColor(DEFAULT)
+          chanTopic = `**${f[i].fancy_title}**\n\n • Posts: ${f[i].posts_count}\n • ${f[i].reply_count}\n • Highest Post Number: ${f[i].highest_post_number}\n\nID: ${f[i].id}`;
+          client.guilds.cache.get("811436417824718878").channels.create(f[i].slug, { topic: chanTopic }).then(c => {
+            c.setParent("825930359614472194");
+            c.send(embed)
+          })
+          break;
+        } else {
+          break;
+        }
+      }
+    }
+    }, 10 * 60 * 1000); // 10 minutes
 });
 
 // client.on('messageReactionAdd', (reaction, user) => {
