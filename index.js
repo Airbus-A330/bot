@@ -112,7 +112,7 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
             .setTitle(`**${f[i].fancy_title}**`)
             .setURL(`https://github.community/t/${f[i].slug}/${f[i].id}/`)
             .setFooter(`Created at ${new Date(f[i].created_at).toLocaleString()} | Last edited at ${new Date(f[i].last_posted_at).toLocaleString()}`)
-            .setDescription("```" + f[i].excerpt + "```")
+            .setDescription(">>> ```" + f[i].excerpt + "```")
             .addField(`**Details:**`, `> • Views: \`${f[i].views}\`\n> • Likes: \`${f[i].like_count}\`\n> • Tags: ${(f[i].tags.length == 0) ? "`No tags!`" : "`" + f[i].tags.join("`, `") + "`"}`)
             .setAuthor(f[i].last_poster_username)
             .setImage(f[i].image_url)
@@ -121,6 +121,12 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
           client.guilds.cache.get("811436417824718878").channels.create(f[i].slug, { topic: chanTopic }).then(c => {
             c.setParent("825930359614472194");
             c.send(embed)
+            setInterval(_ => {
+              c.edit({ topic: `**${f[i].fancy_title}**\n\n • Posts: ${f[i].posts_count}\n • ${f[i].reply_count}\n • Highest Post Number: ${f[i].highest_post_number}\n\nID: ${f[i].id}` })
+            }, 5 * 60 * 1000)
+            setTimeout(async _ => {
+              c.delete().catch(console.error);
+            }, 30 * 60 * 1000);
           })
           break;
         } else {
