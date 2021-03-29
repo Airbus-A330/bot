@@ -97,6 +97,8 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
           }
     })
     }, 30 * 1000)*/
+    /*
+    // LATEST POSTS
     setInterval(async _ => {
     let f = await fetch("https://github.community/latest.json", {
       method: "get"
@@ -135,6 +137,7 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
       }
     }
     }, 15 * 60 * 1000); // 15 minutes
+    */
 });
 
 // client.on('messageReactionAdd', (reaction, user) => {
