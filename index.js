@@ -126,7 +126,7 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
             }, 5 * 60 * 1000)
             setTimeout(async _ => {
               c.delete().catch(console.error);
-            }, 30 * 60 * 1000);
+            }, 45 * 60 * 1000);
           })
           break;
         } else {
@@ -134,7 +134,7 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
         }
       }
     }
-    }, 10 * 60 * 1000); // 10 minutes
+    }, 15 * 60 * 1000); // 15 minutes
 });
 
 // client.on('messageReactionAdd', (reaction, user) => {
