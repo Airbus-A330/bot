@@ -117,12 +117,12 @@ If you're ready to apply now, use \`/apply\` in #commands and you'll be given a 
             .setAuthor(f[i].last_poster_username)
             .setImage(f[i].image_url)
             .setColor(DEFAULT)
-          chanTopic = `**${f[i].fancy_title}**\n\n • Posts: ${f[i].posts_count}\n • ${f[i].reply_count}\n • Highest Post Number: ${f[i].highest_post_number}\n\nID: ${f[i].id}`;
+          chanTopic = `**${f[i].fancy_title}**\n\n • Posts: ${f[i].posts_count}\n • Replies: ${f[i].reply_count}\n • Highest Post Number: ${f[i].highest_post_number}\n\nID: ${f[i].id}`;
           client.guilds.cache.get("811436417824718878").channels.create(f[i].slug, { topic: chanTopic }).then(c => {
             c.setParent("825930359614472194");
             c.send(embed)
             setInterval(_ => {
-              c.edit({ topic: `**${f[i].fancy_title}**\n\n • Posts: ${f[i].posts_count}\n • ${f[i].reply_count}\n • Highest Post Number: ${f[i].highest_post_number}\n\nID: ${f[i].id}` })
+              c.edit({ topic: `**${f[i].fancy_title}**\n\n • Posts: ${f[i].posts_count}\n • Replies: ${f[i].reply_count}\n • Highest Post Number: ${f[i].highest_post_number}\n\nID: ${f[i].id}` })
             }, 5 * 60 * 1000)
             setTimeout(async _ => {
               c.delete().catch(console.error);
