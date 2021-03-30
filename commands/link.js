@@ -26,12 +26,12 @@ module.exports = {
 			if (!subCommand) return message.channel.send(new Discord.MessageEmbed().setColor(`RED`).setDescription(`You are missing the sub command.  Please use either \`-generate\` to generate a key or \`-verify\` to verify your account.`))
 			if (subCommand == "-g" || subCommand == "-gen" || subCommand == "-generate") {
 				let key = await db.get(`${message.author.id}.key`);
-        let check = await db.get(`${message.author.id}.github`)
-        if (check == undefined || check == null) {
+				let check = await db.get(`${message.author.id}.github`)
+				if (check == undefined || check == null) {
 
-        } else {
-          return message.channel.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`You're already verified!`))
-        }
+				} else {
+					return message.channel.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`You're already verified!`))
+				}
 				if (key == undefined || key == null) {
 					var sequence = Buffer.from(`{ "id": "${message.author.id}", "timestamp", "${Date.now()}" }`).toString('base64')
 					await db.set(`${message.author.id}.key`, sequence)
@@ -67,7 +67,7 @@ module.exports = {
 					if (check == undefined || check == null) {
 						if (base.bio.includes(`${key}`)) {
 							await db.set(`${message.author.id}.github`, base)
-              message.channel.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`Congratulations!  We were able to successfully verify that you own your GitHub account.  You now have the <@&821589318199279616> role as you completed the verification successfully.  Thank you!`))
+							message.channel.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`Congratulations!  We were able to successfully verify that you own your GitHub account.  You now have the <@&821589318199279616> role as you completed the verification successfully.  Thank you!`))
 							let role = message.guild.roles.cache.get("821589318199279616")
 							message.member.roles.add(role, "Verified via Github integration")
 						} else {
@@ -87,7 +87,7 @@ module.exports = {
 						return message.channel.send(new Discord.MessageEmbed().setColor(DEFAULT).setDescription(`You're already verified!`))
 					}
 				} catch (error) {
-          console.log(error)
+					console.log(error)
 					message.channel.send(new Discord.MessageEmbed().setDescription(`That's not an existing GitHub username or an error has occured.  If you believe this is a mistake, contact the bot developers.`).setColor(DEFAULT))
 				}
 

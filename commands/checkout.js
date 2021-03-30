@@ -133,16 +133,16 @@ module.exports = {
 
 				if (base.license == null) {
 					embed.addField(`**License:**`, "This repository does not have a license!")
-				} else if (base.license.key == "other"){
-          embed.addField(`**License:**`, "This license is listed under the `Other` category. That's all we know.")
-        } else {
-          let license = await fetch(`https://api.github.com/licenses/${base.license.key}`, {
-					method: "get",
-					headers: {
-						"Authorization": "token " + ghtoken
-					}
-				})
-        license = await license.json()
+				} else if (base.license.key == "other") {
+					embed.addField(`**License:**`, "This license is listed under the `Other` category. That's all we know.")
+				} else {
+					let license = await fetch(`https://api.github.com/licenses/${base.license.key}`, {
+						method: "get",
+						headers: {
+							"Authorization": "token " + ghtoken
+						}
+					})
+					license = await license.json()
 					string = ""
 					string += `• Description: \`${license.description}\`\n• Permissions: \`${license.permissions.join(", ")}\`\n• Conditions: 
               \`${license.conditions.join(", ")}\`\n• Limitations: \`${license.limitations.join(", ")}\``
