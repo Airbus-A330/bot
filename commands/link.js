@@ -14,7 +14,7 @@ module.exports = {
 	description: 'Link profile for verification',
 	usage: null,
 	aliases: ["l", "connect", "sync"],
-	async execute(message, args, DEFAULT) {
+	async execute(message, args, DEFAULT, ghtoken) {
 		try {
 			const {
 				client
