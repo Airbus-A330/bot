@@ -14,6 +14,7 @@ module.exports = {
 	usage: null,
 	aliases: ["h", "havish"],
 	async execute(message, args, DEFAULT) {
+    if (message.content.endsWith(`-modmail`)) return;
 		const {
 			client
 		} = message;
