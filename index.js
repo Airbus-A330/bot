@@ -160,7 +160,7 @@ client.on('ready', async () => {
 
 client.ws.on('INTERACTION_CREATE', async interaction => {
 	if (client.channels.cache.get(interaction.channel_id).type == "dm") return;
-	console.log(interaction.data)
+	console.log(interaction.data);
 	try {
 		if (interaction.data.name == "help") {
 			let message = {
