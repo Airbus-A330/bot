@@ -66,6 +66,9 @@ client.on('ready', async () => {
 
 	logger.info("READY: Bot has logged in.");
 	client.user.setStatus(status);
+  for (const guild of client.guilds.cache.values()) {
+    await guild.members.fetch().catch(() => null);
+}
 	/*
 	    client.channels.cache.get('791204793670172744').messages.fetch('791363015835516968').then(async m => {
 	        console.log('editing', m.content.length);
@@ -159,7 +162,15 @@ client.on('ready', async () => {
 // })
 
 client.ws.on('INTERACTION_CREATE', async interaction => {
-	if (client.channels.cache.get(interaction.channel_id).type == "dm") return;
+	if (client.channels.cache.get(interaction.channel_id).type == "dm") return client.api.interactions(interaction.id)(interaction.token).callback.post({
+				data: {
+					type: 4,
+					data: {
+            content: "Slash commands on this bot are currently not supported in Direct Messages.",
+            flags: 64
+					}
+				}
+			})
 	console.log(interaction.data);
 	try {
 		if (interaction.data.name == "help") {
