@@ -24,7 +24,7 @@ module.exports = {
 		let embed = new Discord.MessageEmbed()
 			.setColor(DEFAULT)
 			.setTitle(`**Commands**`)
-			.setDescription("> `check` - Check a GitHub object\n>  ├─`-repository` - Check a GitHub Repository\n>  └─`-user` - Check a GitHub user\n\n> `link` - Connect a GitHub profile to your Discord \n>  ├─`-generate` - Generate a verification key\n>  └─`-verify` - Verify the account")
+			.setDescription("> `check` - Check a GitHub object\n>  ├─`-repository` - Check a GitHub Repository\n>  └─`-user` - Check a GitHub user\n\n> `link` - Connect a GitHub profile to your Discord \n>  ├─`-generate` - Generate a verification key\n>  └─`-verify` - Verify the account\n> `rep` - Gives a user a reputation point")
 		message.channel.send(embed)
 	}
 }

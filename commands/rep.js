@@ -38,7 +38,7 @@ module.exports = {
       message.channel.send(embed);
       return;
     }
-    user = user.replace("<@", "").replace("!", "").replace(">")
+    user = user.replace("<@", "").replace("!", "").replace(">", "")
     user = message.guild.member(user);
     if (user == null) {
       let embed = new Discord.MessageEmbed()
@@ -54,8 +54,9 @@ module.exports = {
     let rep = await db.get(`${user}.rep`);
     await db.set(`${user}.rep`, (parseInt(rep) + 1));
     let embed = new Discord.MessageEmbed()
-      .setDescription(`You have successfully given <@${user}> **one** reputation point!`)
+      .setDescription(`You have successfully given ${user} **one** reputation point!`)
       .setColor(DEFAULT)
     message.channel.send(embed);
+    repHandler.increment(message.author.id);
   }
 };
