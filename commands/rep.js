@@ -47,12 +47,12 @@ module.exports = {
       message.channel.send(embed);
       return;
     }
-    let check = await db.get(`${user}.rep`);
+    let check = await db.get(`${user.id}.rep`);
     if (check == undefined || check == null) {
-      await db.set(`${user}.rep`, 0);
+      await db.set(`${user.id}.rep`, 0);
     }
-    let rep = await db.get(`${user}.rep`);
-    await db.set(`${user}.rep`, (parseInt(rep) + 1));
+    let rep = await db.get(`${user.id}.rep`);
+    await db.set(`${user.id}.rep`, (parseInt(rep) + 1));
     let embed = new Discord.MessageEmbed()
       .setDescription(`You have successfully given ${user} **one** reputation point!`)
       .setColor(DEFAULT)
