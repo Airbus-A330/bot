@@ -1,16 +1,14 @@
 {
   "name": "GitHub",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Github community bot",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Airbus-A330/GitHub.git"
   },
-  "keywords": [],
+  "keywords": ["github"],
   "author": "",
   "license": "ISC",
   "bugs": {
