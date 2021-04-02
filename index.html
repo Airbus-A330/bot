@@ -1,18 +1,14 @@
- <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html>
-
 <head>
-
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>GitHub Account Verification</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
- <link rel="icon" 
+    <link rel="icon" 
       type="image/gif" 
       href="https://cdn.discordapp.com/avatars/811451619010936832/6d9aea710291630b000a787453ca206f.png?size=256"
     >
-
 </head>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
@@ -24,7 +20,7 @@
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyAMkTys90OJUnUHY-jG6opqbqw_IfIhbkg",
     authDomain: "github-auth-verification.firebaseapp.com",
     projectId: "github-auth-verification",
@@ -39,7 +35,7 @@
 </script>
 <script>
       function hide(str) {
-  var x = document.getElementById(str);
+  const x = document.getElementById(str);
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -47,7 +43,7 @@
   }
 }
 function show(str) {
-  var x = document.getElementById(str);
+  const x = document.getElementById(str);
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -82,18 +78,21 @@ function show(str) {
 		}
     </script>
 <style>
-  body {
+
+body {
   margin-top: 100px;
   margin-bottom: 100px;
   margin-right: 150px;
   margin-left: 80px;
 }
+
 img {
   width: 42px;
   height: 42px;
   float: left;
   border-radius: 50%;
 }
+
 iframe{
     overflow:hidden;
 }
@@ -104,9 +103,9 @@ iframe{
   width: 5%;
   height: 5%;
   margin: auto 800px;
-  
 
 }
+
 .button {
   background-color: #7289da; /* Green */
   border: none;
@@ -130,28 +129,17 @@ iframe{
   vertical-align: middle;
 
 }
-
-
 </style>
-
-
- 
-
 <body>
-  <h1 id = "display_result_1">
-</h1>
-
+  <h1 id = "display_result_1"></h1>
  <!-- <img class = "resize" id = "avatar" style="vertical-align:middle"> -->
-  <h2 id = "display_result_2">
-    </h2>
-   
-
+  <h2 id = "display_result_2"></h2>
 <br>
 <br>
 <br>
 <br>
 <br>
-    <center><h1 id = "prelogin_welcome_head" style="bold">   Welcome</h1></center>
+    <center><h1 id = "prelogin_welcome_head" style="font-weight: bold;">Welcome</h1></center>
     <center><h4 id = "prelogin_welcome_body">Please login before continuing.</h4></center>
     <center><p id = "disclaimer_1"> We need to verify your GitHub account.</p></center>
     <center><p id = "links"><a href="https://github.com/havishpallerla/GitBot" target="_blank">Our GitHub</a> | <a href="https://discord.gg/hkDhAbfZm4" target="_blank">Discord</a></p></center>
@@ -172,7 +160,7 @@ iframe{
     
     <script>
       function hide(str) {
-  var x = document.getElementById(str);
+  const x = document.getElementById(str);
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -180,7 +168,7 @@ iframe{
   }
 }
 function show(str) {
-  var x = document.getElementById(str);
+  const x = document.getElementById(str);
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
