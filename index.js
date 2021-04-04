@@ -14,9 +14,7 @@ const {
 	Collection
 } = require('discord.js');
 
-const client = new Client({
-	fetchAllMembers: true
-});
+const client = new Client();
 var snipe = {};
 Object.assign(client, {
 	cross: '<:cross:790687235376676924>',
