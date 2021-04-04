@@ -8,7 +8,9 @@
     "type": "git",
     "url": "git+https://github.com/Airbus-A330/GitHub.git"
   },
-  "keywords": ["github"],
+  "keywords": [
+    "github"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -19,7 +21,7 @@
     "@replit/database": "^2.0.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
-    "discord.js": "^12.5.2",
+    "discord.js": "^12.5.3",
     "express": "^4.17.1",
     "form-data": "^4.0.0",
     "humanize-duration": "^3.25.1",
