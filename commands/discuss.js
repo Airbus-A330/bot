@@ -15,7 +15,7 @@ const discussHandler = new Ratelimiter({
 });
 
 module.exports = {
-	name: 'discuss',
+	name: 'disabled-discuss',
 	description: 'Discuss something from the GitHub Community',
 	usage: null,
 	aliases: ["d"],
