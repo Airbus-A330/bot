@@ -1,0 +1,11 @@
+{
+  "prefix": "BOT'S PREFIX",
+  "DEFAULT": "EMBED'S COLOR AS HEX VALUE, WITH #",
+  "statuses": [
+    {
+      "name": "NAME OF THE STATUS",
+      "type": "PLAYING || STREAMING || WATCHING || CUSTOM_STATUS",
+      "url": "https://twitch.tv/..."
+    }
+  ]
+}
