@@ -1,11 +1,22 @@
 {
-  "prefix": "BOT'S PREFIX",
-  "DEFAULT": "EMBED'S COLOR AS HEX VALUE, WITH #",
+  "prefix": "git ",
+  "DEFAULT": "#959da5",
+  "status": "",
   "statuses": [
-    {
-      "name": "NAME OF THE STATUS",
-      "type": "PLAYING || STREAMING || WATCHING || CUSTOM_STATUS",
-      "url": "https://twitch.tv/..."
+  ],
+  "logs": {
+    "messages": {
+      "webhook_id": "",
+      "webhook_token": ""
+    },
+    "moderation": {
+      "webhook_id": "",
+      "webhook_token": ""
+    },
+    "members": {
+      "webhook_id": "",
+      "webhok_token": ""
     }
-  ]
+  },
+  "token": ""
 }
