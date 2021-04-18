@@ -189,7 +189,8 @@ client.ws.on('INTERACTION_CREATE', async interaction => {
 							footer: {
 								text: "Executed via slash command"
 							}
-						}]
+						}],
+            flags: 4
 					}
 				}
 			})
@@ -213,7 +214,8 @@ client.ws.on('INTERACTION_CREATE', async interaction => {
 							footer: {
 								text: "Executed via slash command"
 							}
-						}]
+						}],
+            flags: 4
 					}
 				}
 			})
@@ -237,7 +239,8 @@ client.ws.on('INTERACTION_CREATE', async interaction => {
 							footer: {
 								text: "Executed via slash command"
 							}
-						}]
+						}],
+            flags: 4
 					}
 				}
 			})
