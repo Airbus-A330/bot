@@ -30,19 +30,19 @@ module.exports = {
 				let orgs = await fetch(`https://api.github.com/users/${args[1]}/orgs`, {
 					method: "get",
 					headers: {
-						"Authorization": "token " + ghtoken
+						"Authorization": "token " + process.env.GITHUB_TOKEN
 					}
 				})
 				let followers = await fetch(`https://api.github.com/users/${args[1]}/followers`, {
 					method: "get",
 					headers: {
-						"Authorization": "token " + ghtoken
+						"Authorization": "token " + process.env.GITHUB_TOKEN
 					}
 				})
 				let following = await fetch(`https://api.github.com/users/${args[1]}/following`, {
 					method: "get",
 					headers: {
-						"Authorization": "token " + ghtoken
+						"Authorization": "token " + process.env.GITHUB_TOKEN
 					}
 				})
 				base = await base.json()
@@ -98,26 +98,26 @@ module.exports = {
 				let base = await fetch(`https://api.github.com/repos/${args[1]}`, {
 					method: "get",
 					headers: {
-						"Authorization": "token " + ghtoken
+						"Authorization": "token " + process.env.GITHUB_TOKEN
 					}
 				})
 				base = await base.json()
 				let stars = await fetch(`https://api.github.com/repos/${args[1]}/stargazers`, {
 					method: "get",
 					headers: {
-						"Authorization": "token " + ghtoken
+						"Authorization": "token " + process.env.GITHUB_TOKEN
 					}
 				})
 				let contributors = await fetch(`https://api.github.com/repos/${args[1]}/contributors`, {
 					method: "get",
 					headers: {
-						"Authorization": "token " + ghtoken
+						"Authorization": "token " + process.env.GITHUB_TOKEN
 					}
 				})
 				let forks = await fetch(`https://api.github.com/repos/${args[1]}/forks`, {
 					method: "get",
 					headers: {
-						"Authorization": "token " + ghtoken
+						"Authorization": "token " + process.env.GITHUB_TOKEN
 					}
 				})
 				stars = await stars.json()
@@ -139,7 +139,7 @@ module.exports = {
 					let license = await fetch(`https://api.github.com/licenses/${base.license.key}`, {
 						method: "get",
 						headers: {
-							"Authorization": "token " + ghtoken
+							"Authorization": "token " + process.env.GITHUB_TOKEN
 						}
 					})
 					license = await license.json()
