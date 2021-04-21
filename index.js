@@ -466,15 +466,15 @@ setInterval(async () => {
 	const guild = client.guilds.cache.get("811436417824718878");
 	const guild2 = client.guilds.cache.get("819390508895305759")
 	try {
-		client.user.setAvatar(url)
+		//client.user.setAvatar(url)
 		guild.setIcon(url)
 		guild2.setIcon(url)
-		let w = await client.guilds.cache.get("811436417824718878").fetchWebhooks()
+		/*let w = await client.guilds.cache.get("811436417824718878").fetchWebhooks()
 		w.forEach(wh => {
 			wh.edit({
 				avatar: url
 			})
-		})
+		})*/
 		/*
 		 if (m !== null) {
 		        let msg = await client.channels.cache.get("818900769964687410").messages.fetch(m)
