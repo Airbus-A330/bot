@@ -456,10 +456,11 @@ client.on('message', async message => {
 	}
 })();
 
-
+	/*`https://media.discordapp.net/attachments/811437321593290804/812091804811657276/GitHub-Mark.png`,
+	`https://media.discordapp.net/attachments/811437321593290804/812091805578297374/GitHub-Mark_Dark.png`*/
 const iconList = [
-	`https://media.discordapp.net/attachments/811437321593290804/812091804811657276/GitHub-Mark.png`,
-	`https://media.discordapp.net/attachments/811437321593290804/812091805578297374/GitHub-Mark_Dark.png`
+  `https://media.discordapp.net/attachments/826853132600344576/840298988204851240/blurple.png`,
+  `https://media.discordapp.net/attachments/826853132600344576/840299138020933672/blurple.png`
 ];
 let iconIndex = 0;
 setInterval(async () => {
