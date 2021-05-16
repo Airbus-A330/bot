@@ -8,9 +8,6 @@ const db = new Database();
 let m = null;
 let n = null;
 
-//NjkzMTc2NTU2NTE1NzU0MDA0.Xn5Q-Q.9Q08r2MGHAku8XxMHuxe7QX-l9k
-
-
 const {
 	Client,
 	MessageEmbed,
