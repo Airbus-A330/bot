@@ -160,7 +160,7 @@ client.on('ready', async () => {
 // })
 
 client.ws.on('INTERACTION_CREATE', async interaction => {
-	if (client.channels.cache.get(interaction.channel_id).type == "dm") return client.api.interactions(interaction.id)(interaction.token).callback.post({
+	if (client.channels.cache.get(interaction.channel_id).type == "dm") return; client.api.interactions(interaction.id)(interaction.token).callback.post({
 				data: {
 					type: 4,
 					data: {
