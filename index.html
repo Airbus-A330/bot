@@ -1,160 +1,157 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>GitHub Account Verification</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" 
-      type="image/gif" 
-      href="https://cdn.discordapp.com/avatars/811451619010936832/6d9aea710291630b000a787453ca206f.png?size=256"
-    >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>GitHub Account Verification</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="icon" type="image/png"
+        href="https://cdn.discordapp.com/avatars/811451619010936832/df91181b3f1cf0ef1592fbe18e0962d7.png?size=128">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            background-color: #EDEDED;
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 42px;
+            height: 42px;
+            float: left;
+            border-radius: 50%;
+        }
+
+        .button {
+            background-color: #7289da;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .button:hover {
+            color: white;
+            background-color: #677BC4;
+            text-decoration: none;
+        }
+
+        .center {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            vertical-align: baseline;
+            margin: auto;
+        }
+
+        .container {
+            padding: 0;
+        }
+
+        #welcome_container>#header {
+            font-weight: bold;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+    </style>
 </head>
 
-<script>
-      function hide(str) {
-  const x = document.getElementById(str);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-function show(str) {
-  const x = document.getElementById(str);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-        window.onload = () => {
-			const code = location.href.substring(location.href.indexOf("code")+5, location.href.length)
-			if (location.href.indexOf("code") > -1) {
-                const req = new XMLHttpRequest()
-                req.open("POST", "https://Alternative-Bot.vietnamairlines.repl.co")
-                req.send(code)
-                req.onload = () => {
-                    hide("login_button")
-                     hide("prelogin_welcome_head")
-                     hide("prelogin_welcome_body")
-                     hide("disclaimer_1")
-                     hide("links")
-                    document.getElementById("display_result_1").innerText = `Welcome, `
-                    document.getElementById("display_result_2").innerText=`\xa0${JSON.parse(req.responseText).user.username}#${JSON.parse(req.responseText).user.discriminator}!`
-                    if (JSON.parse(req.responseText).connections.length == 0) {
-                      document.getElementById("disclaimer").innerText = "You are lacking a GitHub account! You can't continue to this server without one!"
-                    } else {
-                     document.getElementById("disclaimer").innerText = "Thanks for verifying your GitHub account! You can continue to our server now."
-                    }
-                     document.getElementById("avatar").src=`https://cdn.discordapp.com/avatars/${JSON.parse(req.responseText).user.id}/${JSON.parse(req.responseText).user.avatar}`
-                     document.getElementById("form_guide").innerText="Please fill out the staff application form below."
-                     document.getElementById("google_form").src=`https://docs.google.com/forms/d/e/1FAIpQLSdcy92t-nZAkvVQ2WH_DtlAWfyEq0jeO_m0GEQBu1aunIKSsg/viewform?usp=pp_url&entry.982248043=${JSON.parse(req.responseText).id}&entry.844004652=${JSON.parse(req.responseText).username}%23${JSON.parse(req.responseText).discriminator}`
-                }
 
-			}
-		}
-    </script>
-<style>
-
-body {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-right: 150px;
-  margin-left: 80px;
-}
-
-img {
-  width: 42px;
-  height: 42px;
-  float: left;
-  border-radius: 50%;
-}
-
-iframe{
-    overflow:hidden;
-}
-.center {
-  display: block;
-  margin-left: 650px;
-  margin-right: auto;
-  width: 5%;
-  height: 5%;
-  margin: auto 800px;
-
-}
-
-.button {
-  background-color: #7289da; /* Green */
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
-.button:hover {
-  background-color: #42f584
-}
-
-.center {
-  left: auto;
-  right: 300px;
-  height: 100px;
-  width: 100px;
-  vertical-align: middle;
-
-}
-</style>
 <body>
-  <h1 id = "display_result_1"></h1>
- <!-- <img class = "resize" id = "avatar" style="vertical-align:middle"> -->
-  <h2 id = "display_result_2"></h2>
-<br>
-<br>
-<br>
-<br>
-<br>
-    <center><h1 id = "prelogin_welcome_head" style="font-weight: bold;">Welcome</h1></center>
-    <center><h4 id = "prelogin_welcome_body">Please login before continuing.</h4></center>
-    <center><p id = "disclaimer_1"> We need to verify your GitHub account.</p></center>
-    <center><p id = "links"><a href="https://github.com/havishpallerla/GitBot" target="_blank">Our GitHub</a> | <a href="https://discord.gg/hkDhAbfZm4" target="_blank">Discord</a></p></center>
-    <br>
-    <div><strong id = "disclaimer"></strong></div>
-    <div id = "user_id"></div>
-    <div id = "user_email"></div>
-    <br>
-    <p><em id = "small_disclaimer"></em></p>
-    <br>
-    <p><strong id = "form_guide"></strong></p>
-    <!-- https://docs.google.com/forms/d/e/1FAIpQLSdcy92t-nZAkvVQ2WH_DtlAWfyEq0jeO_m0GEQBu1aunIKSsg/viewform?usp=pp_url&entry.982248043=1234567890010101010&entry.844004652=123123%231231?embedded=true -->
+    <div class="container center">
+        <div id="prelogin">
+            <div id="welcome_container">
+                <h1 id="header">Welcome</h1>
+                <h4 id="body">Please login before continuing.</h4>
+                <p id="footer">We need to verify your GitHub account.</p>
+            </div>
+            <br>
+            <div id="links">
+                <ul class="center">
+                    <li><a href="https://github.com/havishpallerla/GitBot" target="_blank">GitHub</a></li>
+                    <li>&nbsp;|&nbsp;</li>
+                    <li><a href="https://discord.gg/hkDhAbfZm4" target="_blank">Discord</a></li>
+                </ul>
+            </div>
+            <br>
+            <a href="#"
+                class="button" id="login_button">Login with Discord</a>
+        </div>
+        <div id="loggedin">
+            <div id="welcome_container">
+                <h1 id="header">Welcome,</h1>
+                <img id="avatar" src="#" alt="Discord avatar's URL">
+                <h4 id="body">
+                    <span id="discord_tag"></span>
+                </h4>
+                <p id="footer"><span id="message"></span></p>
+            </div>
+            <br>
+            <div id="google_form">
+                <p>Please fill out the staff application form below</p>
+                <iframe id="google_iframe" width="1000" height="2061" frameborder="2" marginheight="0"
+                    marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+    </div>
 
-    <iframe 
-    id = "google_form" width="1000" height="2061" frameborder="2" marginheight="0" marginwidth="0">Loading…</iframe>
-
-    <center><a href="https://discord.com/api/oauth2/authorize?client_id=811451619010936832&redirect_uri=https%3A%2F%2FAlternative-Bot.vietnamairlines.repl.co&response_type=code&scope=identify%20connections"class="button" id = "login_button">Login With Discord</a></center>
-    
     <script>
-      function hide(str) {
-  const x = document.getElementById(str);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-function show(str) {
-  const x = document.getElementById(str);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-hide("google_form")
-      </script>
-</form>
+        const authEndpoint = "https://Alternative-Bot.vietnamairlines.repl.co",
+	      application_id = "811451619010936832",
+         hide = (target) => {
+            document.querySelector(target).style.display = "none"
+        },
+            show = (target) => {
+                document.querySelector(target).style.display = "block"
+            },
+            authHandler = () => {
+                const req = new XMLHttpRequest()
+                req.open("POST", authEndpoint, true)
+                req.onreadystatechange = async () => {
+                    if (req.readyState === 4) {
+                        const body = JSON.parse(req.responseText)
+                        document.querySelector("#discord_tag").innerText = `${body.user.username}#${body.user.discriminator}`
+                        document.querySelector("#message").innerText = body.connections.length == 0 ? "You are lacking a GitHub account! You can't continue to this server without one!" : "Thanks for verifying your GitHub account! You can continue to our server now."
+                        document.querySelector("#avatar").src = `https://cdn.discordapp.com/avatars/${body.user.id}/${body.user.avatar}.webp?size=128`
+                        document.querySelector("#google_iframe").src = `https://docs.google.com/forms/d/e/1FAIpQLSdcy92t-nZAkvVQ2WH_DtlAWfyEq0jeO_m0GEQBu1aunIKSsg/viewform?usp=pp_url&entry.982248043=${body.id}&entry.844004652=${body.username}%23${body.discriminator}`
+                    }
+                }
+                req.send(code)
+            },
+            loginButtonHandler = (application_id, redirectionURL) => {
+                document.querySelector("#login_button").href = `https://discord.com/api/oauth2/authorize?client_id=${application_id}&redirect_uri=${encodeURIComponent(redirectionURL)}&response_type=code&scope=identify%20connections`
+            }
+        window.onload = () => {
+            const code = window.location.search.substring(window.location.search.indexOf("code") + 5, window.location.search.length)
+            if (code) {
+                hide("#prelogin")
+                show("#loggedin")
+                authHandler()
+            } else {
+                show("#prelogin")
+                hide("#loggedin")
+                loginButtonHandler(application_id,authEndpoint)
+            }
+        }
+
+    </script>
+    </form>
 </body>
+
 </html>
