@@ -32,7 +32,7 @@ const {
 const logger = require('./util/log.js');
 const Discord = require('discord.js');
 
-client.on('debug', console.log)
+client.on('debug', console.log);
 /*const MonitoRSS = require('monitorss')
 
 // Some configs are mandatory - refer to documentation
