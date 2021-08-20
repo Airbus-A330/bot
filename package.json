@@ -24,7 +24,7 @@
     "discord.js": "^12.5.3",
     "express": "^4.17.1",
     "form-data": "^4.0.0",
-    "html-to-md": "^0.3.9",
+    "html-to-md": "^0.4.4",
     "humanize-duration": "^3.27.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
