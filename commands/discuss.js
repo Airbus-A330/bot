@@ -22,7 +22,7 @@ module.exports = {
     usage: null,
     aliases: ['d'],
     async execute(message, args, DEFAULT, ghtoken) {
-        const args = message.content.replace('git discuss', '').split(' | ')
+        const commandArgs = message.content.replace('git discuss', '').split(' | ')
         try {
             const { client } = message
             if (!discussHandler.canUse(message.author.id)) {
@@ -38,8 +38,8 @@ module.exports = {
                     .setColor(DEFAULT)
                 return message.channel.send(embed)
             }
-            const topic = args.shift().toLowerCase(),
-                url = args.shift()
+            const topic = commandArgs.shift().toLowerCase(),
+                url = commandArgs.shift()
 
             if (!topic) {
                 const embed = new Discord.MessageEmbed()

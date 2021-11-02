@@ -126,6 +126,38 @@ client.ws.on('INTERACTION_CREATE', async (interaction) => {
     }
 })
 
+client.on('guildMemberAdd', async (member) => {
+    const embed = new Discord.MessageEmbed()
+        .setTitle(`:tada: **Welcome!** :tada:`)
+        .setDescription(
+            `We're so glad to have you!  Before you can completely join in on the fun, we need you to verify your GitHub account with us.  Don't worry, we just need to know you have one connected to your Discord account.  [Click here](https://Alternative-Bot.vietnamairlines.repl.co) to verify yourself.`
+        )
+        .addField(
+            `**If you don't have a GitHub account:**`,
+            [
+                `**1.** Create an account [here](https://github.com/join)`,
+                `**2.** Connect it to your Discord Account.  [Need help connecting?](https://support.discord.com/hc/en-us/sections/360007770552-Account-Connections).\n*There currently isn't a guide for GitHub, but it's similar to connecting a Spotify account*`,
+                `**3.** Visit [this link](https://Alternative-Bot.vietnamairlines.repl.co) to verify yourself.`,
+            ].join('\n')
+        )
+        .addField(
+            `**If you don't have your account connected:**`,
+            [
+                `**1.** Connect your account to Discord.  [Need help connecting?](https://support.discord.com/hc/en-us/sections/360007770552-Account-Connections).\n*There currently isn't a guide for GitHub, but it's similar to connecting a Spotify account*`,
+                `**2.** Visit [this link](https://Alternative-Bot.vietnamairlines.repl.co) to verify yourself.`,
+            ].join('\n')
+        )
+        .setFooter(
+            'If you need help, you can reply to this message here in this DM'
+        )
+        .setColor(`BLURPLE`)
+    try {
+        await member.send(embed)
+    } catch (_) {
+        0
+    }
+})
+
 client.on('message', async (message) => {
     if (message.author.bot) return
     if (!message.channel.type !== 'text') return

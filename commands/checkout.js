@@ -8,9 +8,10 @@ module.exports = {
     usage: null,
     aliases: ['c', 'checkout'],
     async execute(message, args, DEFAULT, ghtoken) {
-        const { client } = message
-        const commandType = args[0]
-        if (!args[1]) return
+        const { client } = message,
+         commandType = args.shift(),
+         username = args.shift()
+        if (!username) return
         message.channel.startTyping()
         try {
             if (commandType === '-user') {
@@ -20,7 +21,7 @@ module.exports = {
                     followers: null,
                     following: null,
                 }
-                await github.checkOut(data, 'users', args[1])
+                await github.checkOut(data, 'users', username)
 
                 const { base, orgs, followers, following } = data,
                     embed = new Discord.MessageEmbed()
@@ -109,7 +110,7 @@ module.exports = {
                     forks: null,
                 }
 
-                await github.checkOut(data, 'repos', args[1])
+                await github.checkOut(data, 'repos', username)
 
                 const { base, stars, contributors, forks } = data,
                     embed = new Discord.MessageEmbed()
@@ -142,15 +143,15 @@ module.exports = {
                                     ? ''
                                     : '```' + base.description + '```\n'
                             }[${base.stargazers_count}](https://github.com/${
-                                args[1]
+                                username
                             }/stargazers) Star${
                                 base.stargazers_count <= 1 ? '' : 's'
                             } • [${base.watchers_count}](https://github.com/${
-                                args[1]
+                                username
                             }/watchers) Watcher${
                                 base.watchers_count <= 1 ? '' : 's'
                             } • [${base.forks_count}](https://github.com/${
-                                args[1]
+                                username
                             }/network/members) Fork${
                                 base.forks_count <= 1 ? '' : 's'
                             }\n[${
@@ -160,7 +161,7 @@ module.exports = {
                             }\n${
                                 !base.license
                                     ? '`This repository has no license!`'
-                                    : `License: [\`${base.license.name}\`](https://github.com/${args[1]}/blob/master/LICENSE)`
+                                    : `License: [\`${base.license.name}\`](https://github.com/${username}/blob/master/LICENSE)`
                             }`
                         )
 
