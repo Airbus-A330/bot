@@ -94,14 +94,14 @@ module.exports = {
                     .setFooter(
                         `Created at ${new Date(
                             post.created_at
-                        ).toLocaleString()} • Edited at ${new Date(
+                        )} • Edited at ${new Date(
                             res.last_posted_at
-                        ).toLocaleString()}`
+                        )}`
                     )
                     .setImage(res.image_url)
                     .addField(
                         `**Details:**`,
-                        `> • Views: \`${res.views.toLocaleString()}\`\n> • Likes: \`${
+                        `> • Views: \`${res.views}\`\n> • Likes: \`${
                             res.like_count
                         }\`\n> • Tags: ${
                             !res.tags
