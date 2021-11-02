@@ -1,8 +1,9 @@
 {
-  "name": "GitHub",
-  "version": "1.0.1",
+  "name": "github",
+  "version": "1.1.0",
   "description": "Github community bot",
   "main": "index.js",
+  "module": "CommonJS",
   "scripts": {},
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   "homepage": "https://github.com/Airbus-A330/GitHub#readme",
   "dependencies": {
     "@replit/database": "^2.0.1",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "body-parser": "^1.19.0",
     "discord.js": "^12.5.3",
     "express": "^4.17.1",
