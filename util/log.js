@@ -1,16 +1,17 @@
-const moment = require('moment')
+import moment from 'moment'
 
-module.exports = {
-    info(msg) {
-        const time = moment().utcOffset(-8).format('hh:mm:ss A');
-        console.log(`[INFO | ${time}] ${msg}`);
-    },
-    error(msg) {
-        const time = moment().utcOffset(-8).format('hh:mm:ss A');
-        console.error(`[ERROR | ${time}] ${msg}`);
-    },
-    warn(msg) {
-      const time = moment().utcOffset(-8).format('hh:mm:ss A');
-        console.warn(`[WARNING | ${time}] ${msg}`);
-    }
+function getTime() {
+    return moment().utcOffset(-8).format('hh:mm:ss A')
+}
+
+export function info(msg) {
+    console.log(`[INFO | ${getTime()}] ${msg}`)
+}
+
+export function error(msg) {
+    console.error(`[ERROR | ${getTime()}] ${msg}`)
+}
+
+export function warn(msg) {
+    console.warn(`[WARNING | ${getTime()}] ${msg}`)
 }
