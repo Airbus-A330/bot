@@ -19,7 +19,7 @@
   "homepage": "https://github.com/Airbus-A330/GitHub#readme",
   "dependencies": {
     "@replit/database": "^2.0.1",
-    "axios": "^0.21.1",
+    "axios": "^1.2.5",
     "body-parser": "^1.19.0",
     "discord.js": "^12.5.3",
     "express": "^4.17.1",
